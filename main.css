@@ -162,6 +162,9 @@ nav a {
     display: none;
     padding-left: 1rem; /* Indent nested lists */
 }
+.active {
+    display: block;
+}
 
 .expanded + .nested {
     display: block;
