@@ -84,17 +84,17 @@
             </script> -->
             <script>
                 const toggler = [...document.getElementsByClassName("expandable")];
-                const nest = [...document.querySelectorAll(".nested")]
-                const expandAll = document.getElementById("expand-all")
+                const nest = [...document.querySelectorAll("nested")];
+                const expandAll = document.getElementById("expand-all");
                 toggler.forEach(d => d.addEventListener('click', e => {
-                e.target.parentElement.querySelector(".nested").classList.toggle("active");
-                e.target.classList.toggle("expandable.expanded");
+                    e.target.parentElement.querySelector("nested").classList.toggle("active");
+                    e.target.classList.toggle("expandable.expanded");
                 }))
 
                 expandAll.addEventListener('click', () => {
-                const noActive = nest.every(d => !d.classList.contains('active'))
-                toggler.forEach(t => t.classList.toggle('expandable.expanded', noActive))
-                nest.forEach(n => n.classList.toggle('active', noActive))
+                    const noActive = nest.every(d => !d.classList.contains('active'));
+                    toggler.forEach(t => t.classList.toggle('expandable.expanded', noActive));
+                    nest.forEach(n => n.classList.toggle('active', noActive));
                 })
             </script>
         </div>
