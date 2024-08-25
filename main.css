@@ -156,6 +156,7 @@ nav a {
 
 .tree-list .expandable.expanded::before {
     content: "\25BC"; /* Down-pointing triangle */
+    transform: rotate(90deg);
 }
 
 .nested {
