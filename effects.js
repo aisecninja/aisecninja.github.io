@@ -56,17 +56,3 @@
 
         showNextQuote(); // Show initial quote
         setInterval(showNextQuote, 5000); // Change quote every 5 seconds
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const expandables = document.querySelectorAll('.expandable');
-        
-            expandables.forEach(item => {
-                item.addEventListener('click', function () {
-                    this.classList.toggle('expanded');
-                    const nestedList = this.nextElementSibling;
-                    if (nestedList) {
-                        nestedList.classList.toggle('expanded');
-                    }
-                });
-            });
-        });

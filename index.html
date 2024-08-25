@@ -15,6 +15,7 @@
 
             expandables.forEach(item => {
                 item.addEventListener('click', function () {
+                    console.log('Clicked:', this.textContent); // Debugging line
                     this.classList.toggle('expanded');
                     const nestedList = this.nextElementSibling;
                     if (nestedList) {
@@ -24,7 +25,6 @@
                 });
             });
         });
-
     </script>
 </head>
 
