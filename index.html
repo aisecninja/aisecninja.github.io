@@ -116,12 +116,12 @@
         </div>
         <script>
             // Function to load HTML content from an external file
-            function loadMenu() {
+            function loadLeftColumn() {
                 const xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
-                    if (this.readyState === 4 && this.status === 200) {
+                    if (this.readyState == 4 && this.status == 200) {
                         document.getElementById("menu-placeholder").innerHTML = this.responseText;
-                        addDropdownFunctionality(); // Call the function to add dropdown functionality
+                        addDropdownFunctionality();
                     }
                 };
                 xhttp.open("GET", "left-column.html", true);
@@ -144,7 +144,8 @@
             }
         
             // Load the menu when the page loads
-            document.addEventListener("DOMContentLoaded", loadMenu);
+            document.addEventListener("DOMContentLoaded", loadLeftColumn);
+            
         </script>
         
         <div class="right-column">
