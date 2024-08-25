@@ -40,29 +40,7 @@
             });
         });
     </script>-->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log('DOM fully loaded and parsed');
 
-            const expandables = document.querySelectorAll('.expandable');
-            console.log('Found', expandables.length, 'expandable elements.');
-
-            expandables.forEach(item => {
-                console.log('Expandable item:', item.textContent);
-                item.addEventListener('click', function () {
-                    console.log('Clicked:', this.textContent); // Debugging line
-                    this.classList.toggle('expanded');
-                    const nestedList = this.nextElementSibling;
-                    if (nestedList && nestedList.classList.contains('nested')) {
-                        nestedList.classList.toggle('expanded');
-                        console.log("Expanded! :) ");
-                    } else {
-                        console.error('Nested list not found or does not have the correct class.');
-                    }
-                });
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -79,7 +57,31 @@
     </header>
 
     <div class="container">
-        <div id="left-column-placeholder"></div>
+        <div id="left-column-placeholder">
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    console.log('DOM fully loaded and parsed');
+        
+                    const expandables = document.querySelectorAll('.expandable');
+                    console.log('Found', expandables.length, 'expandable elements.');
+        
+                    expandables.forEach(item => {
+                        console.log('Expandable item:', item.textContent);
+                        item.addEventListener('click', function () {
+                            console.log('Clicked:', this.textContent); // Debugging line
+                            this.classList.toggle('expanded');
+                            const nestedList = this.nextElementSibling;
+                            if (nestedList && nestedList.classList.contains('nested')) {
+                                nestedList.classList.toggle('expanded');
+                                console.log("Expanded! :) ");
+                            } else {
+                                console.error('Nested list not found or does not have the correct class.');
+                            }
+                        });
+                    });
+                });
+            </script>
+        </div>
         
         <div class="right-column">
             <div class="post">
