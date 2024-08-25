@@ -10,18 +10,20 @@
     <script src="prism.js"></script>
     <script src="code.js"></script>
     <script>
-        function loadLeftColumn() {
-            const xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("left-column-placeholder").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "left-column.html", true);
-            xhttp.send();
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const expandables = document.querySelectorAll('.expandable');
 
-        document.addEventListener("DOMContentLoaded", loadLeftColumn);
+            expandables.forEach(item => {
+                item.addEventListener('click', function () {
+                    this.classList.toggle('expanded');
+                    const nestedList = this.nextElementSibling;
+                    if (nestedList) {
+                        nestedList.classList.toggle('expanded');
+                    }
+                });
+            });
+        });
+
     </script>
 </head>
 
