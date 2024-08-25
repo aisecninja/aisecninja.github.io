@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI SEC NINJA</title>
+    <style>
+        /* Base Styles */
+        body {
+            background-color: #000; /* Pure Black Background */
+            color: #f0f0f0; /* Near White Text */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #a0e7e5; /* Soft Cyan for Links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.6); /* Increased Transparency */
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ffffff; /* Pure White for Contrast */
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(160, 231, 229, 0.7);
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main Container Styles */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9); /* Increased Transparency */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(160, 231, 229, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Left Column Styles */
+        .left-column {
+            flex: 1;
+            margin-right: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(160, 231, 229, 0.1);
+        }
+
+        .left-column h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(160, 231, 229, 0.5);
+        }
+
+        .left-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .left-column li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        /* Right Column Styles */
+        .right-column {
+            flex: 2;
+            background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(160, 231, 229, 0.1);
+        }
+
+        .post {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .post h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(160, 231, 229, 0.5);
+        }
+
+        .post .meta {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+
+        .post p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: rgba(0, 0, 0, 0.6); /* Increased Transparency */
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            color: #f0f0f0;
+            box-shadow: 0 -2px 10px rgba(160, 231, 229, 0.2);
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin: 0;
+            text-shadow: 0 0 5px rgba(160, 231, 229, 0.5);
+        }
+
+        /* Matrix Rain Effect Styles */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 20px;
+            }
+
+            .left-column {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="matrix-rain">
+        <canvas id="matrixCanvas"></canvas>
+    </div>
+
+    <header>
+        <h1>AI SEC NINJA</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="left-column">
+            <h2>Blog Hierarchy</h2>
+            <ul>
+                <li>Introduction</li>
+                <li>Security Tips</li>
+                <li>AI Innovations</li>
+                <li>Case Studies</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="right-column">
+            <div class="post">
+                <h2>Understanding AI in Security</h2>
+                <p class="meta">Posted on August 24, 2024 by CyberNinja</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras vehicula, massa at tempus suscipit, orci urna vehicula nulla, eu placerat metus mi et lorem.</p>
+            </div>
+
+            <div class="post">
+                <h2>Top 10 AI Tools for Cybersecurity</h2>
+                <p class="meta">Posted on August 20, 2024 by SecureBot</p>
+                <p>Fusce scelerisque, sapien nec auctor dapibus, erat dui ultricies magna, at ullamcorper elit leo vel metus. Mauris at tellus mi. Nulla facilisi. Phasellus lacinia, tortor ac egestas hendrerit, justo nunc cursus nisi, vel laoreet libero justo vitae nulla.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="quote"></p>
+    </footer>
+
+    <script>
+        // Matrix Digital Rain Effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = Math.random() * canvas.height;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#a0e7e5'; // Light Cyan
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        // Cycling Quotes in Footer
+        const quotes = [
+            "The future belongs to those who prepare for it today.",
+            "AI is the new electricity.",
+            "Security is not a product, but a process.",
+            "The best way to predict the future is to create it.",
+            "Data is the new oil.",
+            "Innovation distinguishes between a leader and a follower.",
+            "In God we trust. All others must bring data."
+        ];
+
+        let currentQuoteIndex = 0;
+        const quoteElement = document.querySelector('.quote');
+
+        function showNextQuote() {
+            quoteElement.textContent = `"${quotes[currentQuoteIndex]}"`;
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        }
+
+        showNextQuote(); // Show initial quote
+        setInterval(showNextQuote, 5000); // Change quote every 5 seconds
+    </script>
+</body>
+
+</html>
