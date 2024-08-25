@@ -9,20 +9,6 @@
     <title>AI SEC NINJA</title>
     <script src="prism.js"></script>
     <script src="code.js"></script>
-    <script>
-        function loadLeftColumn() {
-            const xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("left-column-placeholder").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "left-column.html", true);
-            xhttp.send();
-        }
-
-        document.addEventListener("DOMContentLoaded", loadLeftColumn);
-    </script>
 </head>
 
 <body>
@@ -39,8 +25,16 @@
     </header>
 
     <div class="container">
-        <div id="left-column-placeholder"></div>
-        
+        <div class="left-column">
+            <h2>Blog Hierarchy</h2>
+            <ul>
+                <li>Introduction</li>
+                <li>Security Tips</li>
+                <li>AI Innovations</li>
+                <li>Case Studies</li>
+                <li>Contact</li>
+            </ul>
+        </div>
         <div class="right-column">
             <div class="post">
                 <h2>Understanding AI in Security</h2>
