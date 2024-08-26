@@ -1,10 +1,13 @@
-body {
+body, html {
     background-color: #000; /* Pure Black Background */
     color: #f0f0f0; /* Near White Text */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 a {
@@ -146,6 +149,24 @@ nav a {
     line-height: 1.6;
     color: #e0e0e0;
 }
+
+/*Image Container */
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f0f0;
+}
+
+.centered-image {
+    max-width: 90vw;  /* Ensures image is slightly smaller than full width */
+    max-height: 90vh; /* Ensures image is slightly smaller than full height */
+    object-fit: contain;
+}
+
 
 /* Code Container */
 
