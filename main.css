@@ -64,7 +64,7 @@ nav a {
 }
 
 .left-column {
-    flex: 1; /* This makes the left column flexible */
+    flex: 1.5; /* Increase the flex value to 1.5 to make the left column wider */
     background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
     padding: 20px;
     border-radius: 10px;
@@ -233,9 +233,11 @@ footer {
         padding: 1.5rem;
     }
 
-    .left-column,
+    .left-column {
+        flex: 1.2; /* Slightly narrower on medium screens */
+    }
     .right-column {
-        padding: 1rem;
+        flex: 2.8; /* Adjust right column accordingly */
     }
 
     .post h2 {
@@ -255,12 +257,14 @@ footer {
     }
 
     .left-column {
+        width: 100%; /* Full width on small screens */
         margin-right: 0;
         margin-bottom: 1rem;
         padding: 1rem;
     }
 
     .right-column {
+        width: 100%; /* Full width on small screens */
         padding: 1rem;
     }
 
@@ -307,6 +311,7 @@ footer {
     .left-column,
     .right-column {
         padding: 0.8rem;
+        width: 100%; /* Both columns take full width */
     }
 
     header h1 {
