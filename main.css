@@ -64,7 +64,7 @@ nav a {
 }
 
 .left-column {
-    width: 30%;
+    width: 25%;
     /*flex: 2; /* Increase the flex value to 1.5 to make the left column wider */
     background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
     padding: 20px;
@@ -114,7 +114,7 @@ nav a {
 }
 /* Right Column Styles */
 .right-column {
-    width: 70%;
+    width: 75%;
     /*flex: 2; */
     background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
     padding: 1rem;
