@@ -99,130 +99,6 @@ nav a {
     color: #e0e0e0;
 }
 
-/* Left Column Styles */
-.left-column {
-    flex: 1;
-    margin-right: 1rem;
-    background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(160, 231, 229, 0.1);
-}
-
-/* Links within the list */
-.tree-list li a {
-    color: #a0e7e5; /* Light cyan for links */
-    text-decoration: none;
-    display: block; /* Block display for full clickable area */
-    padding: 0.2rem 0.5rem; /* Padding around link text */
-}
-
-.tree-list li a:hover {
-    text-decoration: underline; /* Underline on hover for clarity */
-}
-
-/* Expandable items, with a triangle before them */
-.tree-list .expandable::before {
-    content: "\25B6"; /* Right-pointing triangle */
-    padding-right: 5px; /* Space between triangle and text */
-    font-size: 0.8rem; /* Slightly smaller triangle */
-}
-
-/* When the item is expanded, change the triangle direction */
-.tree-list .expandable.expanded::before {
-    content: "\25BC"; /* Down-pointing triangle */
-}
-
-/* Nested lists start hidden */
-.nested {
-    display: none; /* Hide by default */
-    padding-left: 1rem; /* Indentation for nested items */
-}
-
-/* When expanded, display the nested list */
-.nested.expanded {
-    display: block; /* Show the list when expanded */
-}
-
-/* Styles for active or highlighted list items */
-.tree-list li.active > a {
-    background-color: #333; /* Darker background for active items */
-    color: #fff; /* White text for contrast */
-}
-
-/* Additional visual effects */
-.tree-list .expandable {
-    transition: color 0.2s ease-in-out; /* Smooth color transition */
-}
-
-.tree-list .expandable:hover {
-    color: #a0e7e5; /* Light cyan color on hover */
-}
-
-/*
-.left-column h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(160, 231, 229, 0.5);
-}
-
-.left-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.left-column li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-/* Tree List Styles */
-/*
-.tree-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.tree-list li {
-    margin-bottom: 0.5rem;
-    position: relative;
-    cursor: pointer;
-}
-
-.tree-list li a {
-    color: #a0e7e5;
-    text-decoration: none;
-    display: block;
-    padding: 0.2rem 0.5rem;
-}
-
-.tree-list li a:hover {
-    text-decoration: underline;
-}
-
-.tree-list .expandable::before {
-    content: "\25B6"; /* Right-pointing triangle *//*
-    padding-right: 5px;
-    font-size: 0.8rem;
-}
-
-.tree-list .expandable.expanded::before {
-    content: "\25BC"; /* Down-pointing triangle *//*
-    transform: rotate(90deg);
-}
-
-.nested {
-    display: block;
-    padding-left: 1rem; /* Indent nested lists *//*
-}
-
-.expanded.nested {
-    display: block;
-}
-*/
-
 /* Code Container */
 
 .code-container {
@@ -333,12 +209,14 @@ footer {
     }
 
     .left-column {
+        flex: 1; /* This makes the left column flexible */
         margin-right: 0;
         margin-bottom: 1rem;
         padding: 1rem;
     }
 
     .right-column {
+        flex: 2; /* The right column takes up twice as much space as the left column */
         padding: 1rem;
     }
 
