@@ -63,8 +63,54 @@ nav a {
     z-index: 2;
 }
 
+.left-column {
+    flex: 1; /* This makes the left column flexible */
+    background-color: rgba(255, 255, 255, 0.1); /* Light Transparent Background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(160, 231, 229, 0.1);
+}
+.tree-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
 
+.tree-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    cursor: pointer;
+}
 
+.tree-list li a {
+    color: #a0e7e5;
+    text-decoration: none;
+    display: block;
+    padding: 0.2rem 0.5rem;
+}
+
+.tree-list li a:hover {
+    text-decoration: underline;
+}
+
+.tree-list .expandable::before {
+    content: "\25B6"; /* Right-pointing triangle */
+    padding-right: 5px;
+    font-size: 0.8rem;
+}
+
+.tree-list .expandable.expanded::before {
+    content: "\25BC"; /* Down-pointing triangle */
+}
+
+.nested {
+    display: none;
+    padding-left: 1rem; /* Indent nested items */
+}
+
+.nested.expanded {
+    display: block;
+}
 /* Right Column Styles */
 .right-column {
     flex: 2;
@@ -209,14 +255,12 @@ footer {
     }
 
     .left-column {
-        flex: 1; /* This makes the left column flexible */
         margin-right: 0;
         margin-bottom: 1rem;
         padding: 1rem;
     }
 
     .right-column {
-        flex: 2; /* The right column takes up twice as much space as the left column */
         padding: 1rem;
     }
 
