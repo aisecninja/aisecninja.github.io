@@ -4,11 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="prism.css" rel="stylesheet" />
-    <link href="main.css" rel="stylesheet" />
+    <link href="assets/prism.css" rel="stylesheet" />
+    <link href="assets/main.css" rel="stylesheet" />
     <title>AI SEC NINJA</title>
-    <script src="prism.js"></script>
-    <script src="code.js"></script>
+    <script src="assets/prism.js"></script>
+    <script src="assets/code.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .file {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .file h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .file pre {
+            font-size: 0.9rem;
+            color: #666;
+            white-space: pre-wrap;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .pagination a.active {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .pagination a.disabled {
+            color: #ddd;
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,23 +67,54 @@
     <header>
         <h1>AI SEC NINJA</h1>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Blog</a>
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
         </nav>
     </header>
 
     <div class="container">
+
         <div class="left-column">
-            <h2>Blog Hierarchy</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Security Tips</li>
-                <li>AI Innovations</li>
-                <li>Case Studies</li>
-                <li>Contact</li>
-            </ul>
+            <h2>INDEX</h2>
+            <br>
+            <div id="menu-placeholder">Loading menu...</div> <!-- Placeholder where the menu will be loaded -->
         </div>
+        <script>
+            // Function to load HTML content from an external file
+            function loadLeftColumn() {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("menu-placeholder").innerHTML = this.responseText;
+                        addDropdownFunctionality();
+                    }
+                };
+                xhttp.open("GET", "left-column.html", true);
+                xhttp.send();
+            }
+        
+            // Function to add dropdown functionality
+            function addDropdownFunctionality() {
+                const expandables = document.querySelectorAll('.expandable');
+        
+                expandables.forEach(item => {
+                    item.addEventListener('click', function () {
+                        this.classList.toggle('expanded');
+                        const nestedList = this.nextElementSibling;
+                        if (nestedList && nestedList.classList.contains('nested')) {
+                            nestedList.classList.toggle('expanded');
+                        }
+                    });
+                });
+            }
+        
+            // Load the menu when the page loads
+            document.addEventListener("DOMContentLoaded", loadLeftColumn);
+
+        </script>
+        
         <div class="right-column">
+            <!--
             <div class="post">
                 <h2>Understanding AI in Security</h2>
                 <p class="meta">Posted on August 24, 2024 by CyberNinja</p>
@@ -51,13 +130,126 @@
                 <p class="meta">Posted on August 20, 2024 by SecureBot</p>
                 <p>Fusce scelerisque, sapien nec auctor dapibus, erat dui ultricies magna, at ullamcorper elit leo vel metus. Mauris at tellus mi. Nulla facilisi. Phasellus lacinia, tortor ac egestas hendrerit, justo nunc cursus nisi, vel laoreet libero justo vitae nulla.</p>
             </div>
+            -->
+            <div id="file-container">
+                <!-- File contents will be dynamically inserted here -->
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Pagination controls will be dynamically inserted here -->
+            </div>
+
+            <script>
+                const folderPath = '2024/'; // Path to the folder containing the HTML files
+                const files = []; // This array will store the list of file names
+                const perPage = 5;
+                let currentPage = 1;
+            
+                // Function to fetch the list of files from the server
+                function fetchFiles() {
+                    // Assuming you have a way to get the list of files, manually add them here for demo
+                    // In a real scenario, you'd have this populated dynamically via server-side code or an API
+                    files.push('file1.html', 'file2.html', 'file3.html', 'file4.html', 'file5.html');
+            
+                    displayFiles(currentPage);
+                }
+            
+                // Function to fetch the content of a file and display its preview
+                function fetchFileContent(fileName, callback) {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', folderPath + fileName, true);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            const lines = xhr.responseText.split('\n').slice(0, 15).join('\n');
+                            callback(lines);
+                        }
+                    };
+                    xhr.send();
+                }
+            
+                function displayFiles(page) {
+                    const fileContainer = document.getElementById('file-container');
+                    const start = (page - 1) * perPage;
+                    const end = start + perPage;
+                    const filesToShow = files.slice(start, end);
+            
+                    fileContainer.innerHTML = '';
+            
+                    filesToShow.forEach(file => {
+                        fetchFileContent(file, function(content) {
+                            const fileDiv = document.createElement('div');
+                            fileDiv.className = 'file';
+                            fileDiv.innerHTML = `<h3>${file}</h3><pre>${content}</pre>`;
+                            fileContainer.appendChild(fileDiv);
+                        });
+                    });
+            
+                    renderPagination();
+                }
+            
+                function renderPagination() {
+                    const paginationContainer = document.getElementById('pagination');
+                    const totalPages = Math.ceil(files.length / perPage);
+                    
+                    paginationContainer.innerHTML = '';
+            
+                    if (currentPage > 1) {
+                        const prevLink = document.createElement('a');
+                        prevLink.href = '#';
+                        prevLink.innerText = '« Previous';
+                        prevLink.onclick = () => {
+                            currentPage--;
+                            displayFiles(currentPage);
+                        };
+                        paginationContainer.appendChild(prevLink);
+                    } else {
+                        const prevLink = document.createElement('span');
+                        prevLink.className = 'disabled';
+                        prevLink.innerText = '« Previous';
+                        paginationContainer.appendChild(prevLink);
+                    }
+            
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageLink = document.createElement('a');
+                        pageLink.href = '#';
+                        pageLink.innerText = i;
+                        pageLink.className = i === currentPage ? 'active' : '';
+                        pageLink.onclick = () => {
+                            currentPage = i;
+                            displayFiles(currentPage);
+                        };
+                        paginationContainer.appendChild(pageLink);
+                    }
+            
+                    if (currentPage < totalPages) {
+                        const nextLink = document.createElement('a');
+                        nextLink.href = '#';
+                        nextLink.innerText = 'Next »';
+                        nextLink.onclick = () => {
+                            currentPage++;
+                            displayFiles(currentPage);
+                        };
+                        paginationContainer.appendChild(nextLink);
+                    } else {
+                        const nextLink = document.createElement('span');
+                        nextLink.className = 'disabled';
+                        nextLink.innerText = 'Next »';
+                        paginationContainer.appendChild(nextLink);
+                    }
+                }
+            
+                // Initial fetch of files
+                fetchFiles();
+            
+            </script>
+            
         </div>
     </div>
 
     <footer>
         <p class="quote"></p>
     </footer>
-    <script src="effects.js"></script>
+    <script src="assets/effects.js"></script>
 </body>
 
 </html>
